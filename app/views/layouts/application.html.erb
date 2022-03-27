@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Skdapp</title>
+    <title>Scheduleapp</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -11,6 +11,24 @@
   </head>
 
   <body>
-    <%= yield %>
+    <header>
+      <h1>Ruby on Rails スケジュール管理アプリ</h1>
+    </header>
+
+    <div class="main_container">
+      <%= yield %>
+    </div>
+  
+    <footer>
+      <h1>現在の日時:<%= @current %>
+      <% case controller.action_name %>
+        <% when "index" %>
+          <span>スケジュール合計:<%= @schedules.count %></span>
+        <% else %>
+
+      <% end %>
+      </h1>
+    </footer>
+
   </body>
 </html>
